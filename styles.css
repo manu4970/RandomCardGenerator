@@ -1,0 +1,31 @@
+#body {
+    background-color: green;
+}
+
+#card {
+    background-color: white;
+    height: 550px;
+    width: 380px;
+    border-radius: 20px;
+
+}
+
+.pintaTop {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.pintaBot {
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+#numero {
+    height: 300px
+    
+}
+
+#number{
+    font-size: 150px;
+}
+
