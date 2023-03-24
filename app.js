@@ -19,12 +19,13 @@ const number = document.getElementById("number")
 const pintaTop = document.querySelector(".pintaTop")
 const pintaBot = document.querySelector(".pintaBot")
 const pintaRandom = randomPin()
+const btn = document.getElementById("btn")
 
 
 number.textContent = randomNum()
-pintaTop.innerHTML = `<h3 class="pintaTop d-flex justify-content-left">${pintaRandom}</h3>`
-pintaBot.innerHTML = `<h3 class="pintaBot d-flex flex-row-reverse">${pintaRandom}</h3>`
-
+pintaTop.innerHTML = setPinta("top")
+pintaBot.innerHTML = setPinta("bot")
+pintaBot.style.rotate = "180deg"
 
 function randomPin(){
     let ranPin = Math.floor(Math.random()*4)+1
@@ -44,8 +45,26 @@ function randomNum(){
     return ranNum
 }
 
-console.log("numero ---> "+randomNum()+" pinta---> "+randomPin() )
+function setPinta(position){
+    let h3Top = `<h3 class="pintaTop">${pintaRandom}</h3>`
+    let h3Bot = `<h3 class="pintaBot">${pintaRandom} </h3>`
+    if (position === "top"){
+        return h3Top
+    }
+    if (position === "bot"){
+        return h3Bot
+    }
+}
 
+
+btn.addEventListener("click", function(){
+    number.textContent = randomNum()
+    let generateSamepinta = randomPin()
+    pintaTop.innerHTML = generateSamepinta
+    pintaBot.innerHTML = generateSamepinta
+    pintaBot.style.rotate = "180deg"
+    console.log(pintaBot.innerHTML)
+})
 
 
 
