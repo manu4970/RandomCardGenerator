@@ -67,7 +67,13 @@ btn.addEventListener("click", function(){
 })
 
 
-
+setInterval(function(){
+    number.textContent = randomNum()
+    let generateSamepinta = randomPin()
+    pintaTop.innerHTML = generateSamepinta
+    pintaBot.innerHTML = generateSamepinta
+    pintaBot.style.rotate = "180deg"
+}, 10000)
 
 
 
