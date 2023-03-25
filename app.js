@@ -15,17 +15,47 @@ const trebol = `<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" f
 </svg>`
 
 
+
 const number = document.getElementById("number")
 const pintaTop = document.querySelector(".pintaTop")
 const pintaBot = document.querySelector(".pintaBot")
 const pintaRandom = randomPin()
 const btn = document.getElementById("btn")
+const getHight = document.getElementById("setHight")
+const getwhidt = document.getElementById("setWhidt")
+const btnSubmit = document.getElementById("submit")
+const card = document.getElementById("card")
+
+
+btnSubmit.addEventListener("click", function(e){
+    e.preventDefault()
+    card.style.height = getHight.value
+    card.style.width = getwhidt.value
+})
 
 
 number.textContent = randomNum()
 pintaTop.innerHTML = setPinta("top")
 pintaBot.innerHTML = setPinta("bot")
 pintaBot.style.rotate = "180deg"
+
+btn.addEventListener("click", function(){
+    number.textContent = randomNum()
+    let generateSamepinta = randomPin()
+    pintaTop.innerHTML = generateSamepinta
+    pintaBot.innerHTML = generateSamepinta
+    pintaBot.style.rotate = "180deg"
+})
+
+
+setInterval(function(){
+    number.textContent = randomNum()
+    let generateSamepinta = randomPin()
+    pintaTop.innerHTML = generateSamepinta
+    pintaBot.innerHTML = generateSamepinta
+    pintaBot.style.rotate = "180deg"
+}, 10000)
+
 
 function randomPin(){
     let ranPin = Math.floor(Math.random()*4)+1
@@ -57,23 +87,6 @@ function setPinta(position){
 }
 
 
-btn.addEventListener("click", function(){
-    number.textContent = randomNum()
-    let generateSamepinta = randomPin()
-    pintaTop.innerHTML = generateSamepinta
-    pintaBot.innerHTML = generateSamepinta
-    pintaBot.style.rotate = "180deg"
-    console.log(pintaBot.innerHTML)
-})
-
-
-setInterval(function(){
-    number.textContent = randomNum()
-    let generateSamepinta = randomPin()
-    pintaTop.innerHTML = generateSamepinta
-    pintaBot.innerHTML = generateSamepinta
-    pintaBot.style.rotate = "180deg"
-}, 10000)
 
 
 
